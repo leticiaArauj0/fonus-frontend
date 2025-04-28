@@ -1,0 +1,74 @@
+[
+    {
+      "title": "Audição",
+      "number": "1 de 1",
+      "question": "Seu filho escuta quando você o chama?",
+      "image": 0
+    },
+    {
+      "title": "Expressão verbal",
+      "number": "1 de 3",
+      "question": "Ele faz contato visual durante uma conversação?",
+      "image": 0
+    },
+    {
+      "title": "Expressão verbal",
+      "number": "2 de 3",
+      "question": "Ele troca ou emite sons?",
+      "image": 0
+    },
+    {
+      "title": "Expressão verbal",
+      "number": "3 de 3",
+      "question": "Ele costuma repetir palavras ou frases que ele ouve?",
+      "image": 0
+    },
+    {
+      "title": "Expressão não verbal",
+      "number": "1 de 1",
+      "question": "Ele utiliza gestos (como: apontar, acenar ou balançar a cabeça) para se comunicar?",
+      "image": 0
+    },
+    {
+      "title": "Fala",
+      "number": "1 de 4",
+      "question": "Ele aprende novas palavras com facilidade?",
+      "image": 0
+    },
+    {
+      "title": "Fala",
+      "number": "2 de 4",
+      "question": "Ele costuma inventar novas palavras ou adaptar palavras difíceis?",
+      "image": 0
+    },
+    {
+      "title": "Fala",
+      "number": "3 de 4",
+      "question": "Ele canta músicas ou recita rimas infantis?",
+      "image": 0
+    },
+    {
+      "title": "Fala",
+      "number": "4 de 4",
+      "question": "Ele consegue acompanhar falas?",
+      "image": 0
+    },
+    {
+      "title": "",
+      "number": "1 de 3",
+      "question": "O fonoaudiólogo conseguiu dizer o que ele tinha?",
+      "image": 1
+    },
+    {
+      "title": "",
+      "number": "2 de 3",
+      "question": "Alguma mudança na saúde, audição ou comportamento desde da última consulta?",
+      "image": 2
+    },
+    {
+      "title": "",
+      "number": "3 de 3",
+      "question": "A socialização dele mudou de alguma forma desde que parou a terapia?",
+      "image": 3
+    }
+]
