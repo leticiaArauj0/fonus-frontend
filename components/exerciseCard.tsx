@@ -15,7 +15,7 @@ export default function ExerciseCard({ title, description }: ExerciseProps) {
                 <Text style={styles.title}>{title}</Text>
                 <Text>{description}</Text>
 
-                <Link href=''>
+                <Link href='/exercise' asChild>
                     <TouchableOpacity style={styles.buttonStart}>
                         <Text style={{color: '#47065B'}}>Começar</Text>
                     </TouchableOpacity>
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
 
         paddingHorizontal: 20,
         backgroundColor: '#fff',
-        borderRadius: 20
+        borderRadius: 20,
+        marginTop: 16
     },
 
     image: {

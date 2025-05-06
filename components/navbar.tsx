@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
 
         backgroundColor: '#fff',
         borderRadius: 30,
-        marginTop: 70
+        
+        position: 'absolute',
+        bottom: 20
     },
 
     bar: {

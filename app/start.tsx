@@ -10,7 +10,7 @@ export default function StartScreen() {
                 Precisamos fazer algumas perguntas sobre seu filho para assim podermos  selecionar os exercícios certos.
             </Text>
 
-            <Link href='/childInfo' asChild>
+            <Link href='/consultationQuestion' asChild>
                 <TouchableOpacity style={styles.button}>
                     <Text style={{fontSize: 16, fontWeight: '700', color: '#47065B'}}>Avançar</Text>
                 </TouchableOpacity>

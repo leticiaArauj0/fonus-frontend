@@ -1,32 +1,66 @@
-import { Link } from "expo-router";
-import { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View, StyleSheet } from "react-native";
-import { Dropdown } from 'react-native-element-dropdown';
+import { useAuth } from "@/auth/AuthContext"
+import { useRouter } from "expo-router"
+import { useState } from "react"
+import { Text, TextInput, TouchableOpacity, View, StyleSheet } from "react-native"
+import { Dropdown } from 'react-native-element-dropdown'
 
 const data = [
     {label: 'Feminino', value: 'feminino'},
     {label: 'Masculino', value: 'masculino'},
-];
+]
 
 type ItemType = {
-    label: string;
-    value: string;
+    label: string
+    value: string
 };
 
 export default function ChildInfo() {
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
-    const [gender, setGender] = useState('')
     const [dropdown, setDropdown] = useState(null);
 
     const [selected, setSelected] = useState<string[]>([]);
 
     const _renderItem = (item: ItemType) => {
         return (
-        <View style={styles.item}>
-            <Text style={styles.textItem}>{item.label}</Text>
-        </View>
-        );
+            <View style={styles.item}>
+                <Text style={styles.textItem}>{item.label}</Text>
+            </View>
+        )
+    }
+
+    const { user } = useAuth();
+    const router = useRouter();
+
+    const handleContinue = async () => {
+        if (!user?.email) {
+            alert("Usuário não autenticado.");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://192.168.0.50:3000/update-child", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: user.email,
+                    childName: name,
+                    childAge: age,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                router.push("/start");
+            } else {
+                alert(data.message || "Erro ao atualizar os dados");
+            }
+        } catch (error) {
+            alert("Erro ao conectar com o servidor.");
+        }
     };
 
     return(
@@ -38,10 +72,20 @@ export default function ChildInfo() {
 
             <View>
                 <Text>NOME</Text>
-                <TextInput style={styles.input} placeholder="Digite o nome" />
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="Digite o nome"
+                    value={name}
+                    onChangeText={setName}
+                />
 
                 <Text>IDADE</Text>
-                <TextInput style={styles.input} placeholder="Digite a idade" />
+                <TextInput 
+                    style={styles.input} 
+                    placeholder="Digite a idade"
+                    value={age}
+                    onChangeText={setAge}    
+                />
 
                 <Text>GÊNERO</Text>
                 <Dropdown
@@ -59,11 +103,9 @@ export default function ChildInfo() {
                 />
             </View>
 
-            <Link href='/consultationQuestion' asChild>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={{color:'#fff', fontWeight: 700, fontSize: 16}}>Continuar</Text>
-                </TouchableOpacity>
-            </Link>
+            <TouchableOpacity style={styles.button} onPress={handleContinue}>
+                <Text style={{color:'#fff', fontWeight: 700, fontSize: 16}}>Continuar</Text>
+            </TouchableOpacity>
         </View>
     )
 }

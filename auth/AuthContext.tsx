@@ -4,6 +4,9 @@ type User = {
   name: string;
   email: string;
   age?: number;
+  childName?: string;
+  childAge?: string;
+  conditions?: string[];
 };
 
 type AuthContextType = {

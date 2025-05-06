@@ -1,5 +1,8 @@
 {
   "android": {
     "package": "com.anonymous.fonus"
+  },
+  "ios": {
+    "bundleIdentifier": "com.anonymous.fonus"
   }
 }

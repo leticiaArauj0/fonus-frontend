@@ -1,16 +1,29 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Link } from "expo-router"
-import { Dropdown } from 'react-native-element-dropdown';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Link, useRouter } from "expo-router"
+import { MultiSelect } from 'react-native-element-dropdown';
 import { useState } from "react";
+import { useAuth } from "@/auth/AuthContext";
+import axios from "axios";
 
 const dataDifficulty = [
-    {label: 'Dificuldade 1', value: 'Dificuldade 1'},
-    {label: 'Dificuldade 2', value: 'Dificuldade 2'},
+    { label: 'Gagueira', value: 'Gagueira' },
+    { label: 'Troca de letras', value: 'Troca de letras' },
+    { label: 'Dificuldade de se expressar', value: 'Dificuldade de se expressar' },
+    { label: 'Fala rápida', value: 'Fala rápida' },
+    { label: 'Dificuldade de articulação oral', value: 'Dificuldade de articulação oral' },
+    { label: 'Atrasado linguístico', value: 'Atrasado linguístico' },
+    { label: 'Difícil entendimento das palavras', value: 'Difícil entendimento das palavras' },
 ];
 
 const dataConditions = [
-    {label: 'Codição 1', value: 'Codição 1'},
-    {label: 'Codição 2', value: 'Codição 2'},
+    { label: 'Atraso na Aquisição da Linguagem (AAL)', value: 'Atraso na Aquisição da Linguagem (AAL)' },
+    { label: 'Hipernasalidade', value: 'Hipernasalidade' },
+    { label: 'Distúrbio Fonológico', value: 'Distúrbio Fonológico' },
+    { label: 'Apraxia de Fala na Infância (AFI)', value: 'Apraxia de Fala na Infância (AFI)' },
+    { label: 'Dislexia', value: 'Dislexia' },
+    { label: 'Transtorno do Espectro Autista (TEA)', value: 'Transtorno do Espectro Autista (TEA)' },
+    { label: 'Hipotonia Orofacial', value: 'Hipotonia Orofacial' },
+    { label: 'Gagueira Infantil (Disfluência)', value: 'Gagueira Infantil (Disfluência)' },
 ];
 
 type ItemType = {
@@ -18,95 +31,122 @@ type ItemType = {
     value: string;
 };
 
-export default function difficultyQuestion() {
-    const [dropdown, setDropdown] = useState(null);
-    const [dropdown2, setDropdown2] = useState(null);
-    const [selected, setSelected] = useState<string[]>([]);
-    
-    const _renderItem = (item: ItemType) => {
-        return (
+export default function DifficultyQuestion() {
+    const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([]);
+    const [selectedConditions, setSelectedConditions] = useState<string[]>([]);
+
+    const _renderItem = (item: ItemType, selected: boolean | undefined) => (
         <View style={styles.item}>
-            <Text style={styles.textItem}>{item.label}</Text>
+            <Text style={[styles.textItem, selected && styles.selectedText]}>{item.label}</Text>
         </View>
-        );
-    };
+    );
+
+    const { user } = useAuth()
+    const router = useRouter()
+
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.put("http://192.168.0.50:3000/update-conditions", {
+                email: user?.email,
+                conditions: selectedConditions,
+            });
+    
+            console.log("Condições atualizadas com sucesso:", response.data);
+
+            if(response.status === 200) {
+                router.push('/startQuestionnaire')
+            }
+        } catch (error: any) {
+            if (error.response) {
+                console.error("Erro do servidor:", error.response.status, error.response.data);
+            } else if (error.request) {
+                console.error("Sem resposta do servidor:", error.request);
+            } else {
+                console.error("Erro ao configurar a requisição:", error.message);
+            }
+        }
+    }
 
     return(
         <View style={styles.container}>
-            <Text style={{textAlign: 'center', color: '#47065B', fontSize: 40, fontWeight: 600, width: 320}}>Para prosseguirmos</Text>
+            <Text style={styles.title}>Para prosseguirmos</Text>
 
             <View>
-                <Text style={{textAlign: 'center', color: '#47065B', fontSize: 16, width: 320, marginBottom: 10}}>Selecione as dificuldades do seu filho:</Text>
+                <Text style={styles.label}>Selecione as dificuldades do seu filho:</Text>
 
-                <Dropdown
-                    style={styles.dropdown}
-                    data={dataDifficulty}
-                    labelField="label"
-                    valueField="value"
-                    placeholder="Selecione as dificuldades"
-                    value={dropdown}
-                    onChange={item => {
-                    setDropdown(item.value);
-                    console.log('selected', item);
-                    }}
-                    renderItem={item => _renderItem(item)}
-                />
+                <ScrollView style={styles.selectedContainer}>
+                    <MultiSelect
+                        style={styles.dropdown}
+                        data={dataDifficulty}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Selecione as dificuldades"
+                        value={selectedDifficulties}
+                        onChange={setSelectedDifficulties}
+                        renderItem={(item, selected) => _renderItem(item, selected)}
+                        selectedStyle={styles.selectedStyle}
+                    />
+                </ScrollView>
             </View>
 
             <View>
-                <Text style={{textAlign: 'center', color: '#47065B', fontSize: 16, width: 320, marginBottom: 10}}>Agora, selecione se ele possuir alguma dessas condições </Text>
+                <Text style={styles.label}>Agora, selecione se ele possuir alguma dessas condições:</Text>
 
-                <Dropdown
-                    style={styles.dropdown}
-                    data={dataConditions}
-                    labelField="label"
-                    valueField="value"
-                    placeholder="Selecione as condições"
-                    value={dropdown2}
-                    onChange={item => {
-                    setDropdown2(item.value);
-                    console.log('selected', item);
-                    }}
-                    renderItem={item => _renderItem(item)}
-                />
+                <ScrollView style={styles.selectedContainer}>
+                    <MultiSelect
+                        style={styles.dropdown}
+                        data={dataConditions}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Selecione as condições"
+                        value={selectedConditions}
+                        onChange={setSelectedConditions}
+                        renderItem={(item, selected) => _renderItem(item, selected)}
+                        selectedStyle={styles.selectedStyle}
+                    />
+                </ScrollView>
             </View>
 
-            <Link href='/startQuestionnaire' asChild>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={{fontSize: 16, fontWeight: 700, color: '#fff'}}>Avançar</Text>
-                </TouchableOpacity>
-            </Link>
+            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <Text style={styles.buttonText}>Avançar</Text>
+            </TouchableOpacity>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         height: '100%',
         width: '100%',
-
         backgroundColor: '#FFF',
-
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 50,
+        paddingHorizontal: 50,
     },
-
+    title: {
+        textAlign: 'center',
+        color: '#47065B',
+        fontSize: 40,
+        fontWeight: '600',
+        width: 320,
+        paddingBottom: 40
+    },
+    label: {
+        textAlign: 'center',
+        color: '#47065B',
+        fontSize: 16,
+        width: 320,
+        marginVertical: 10
+    },
     dropdown: {
         height: 50,
         width: 320,
-
         backgroundColor: '#C6C6C6',
-
         borderColor: '#47065B',
         borderWidth: 1,
         borderRadius: 20,
-
-        marginTop: 5,
-        marginBottom: 20,
         paddingHorizontal: 20
     },
-        
     item: {
         paddingVertical: 17,
         paddingHorizontal: 10,
@@ -114,20 +154,33 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    
     textItem: {
         flex: 1,
         fontSize: 16,
     },
-
     button: {
         height: 50,
         width: 320,
-
         justifyContent: 'center',
         alignItems: 'center',
-        
         backgroundColor: '#47065B',
         borderRadius: 20,
-    }
-})
+        marginTop: 20
+    },
+    buttonText: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#fff'
+    },
+    selectedText: {
+        color: '#47065B',
+        fontWeight: 'bold',
+    },
+    selectedStyle: {
+        borderRadius: 12,
+    },
+    selectedContainer: {
+        maxHeight: 150,
+        overflow: 'scroll',
+    },      
+});

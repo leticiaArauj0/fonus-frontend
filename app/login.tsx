@@ -14,14 +14,21 @@ export default function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post<{ message: string; user?: { name: string; email: string }}>(
-                "http://192.168.0.42:3000/login",
+            const response = await axios.post<{ message: string; user?: { name: string; email: string, childName: string, childAge: string }}>(
+                "http://192.168.0.50:3000/login",
                 { email, password }
             );
+
+            const user = response.data.user
     
-            if (response.data.user) {
-                login(response.data.user);
-                router.push("/start");
+            if (user) {
+                login(user);
+
+                if (!user.childName || !user.childAge) {
+                    router.push("/childInfo");
+                } else {
+                    router.push("/start");
+                }
               } else {
                 setMessage(response.data.message || "Erro no login");
             }

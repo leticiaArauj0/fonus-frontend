@@ -1,20 +1,20 @@
-import { View, Text, Button, TextInput, TouchableOpacity, StyleSheet, PanResponder } from "react-native";
-import { useState } from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native"
+import { useState } from "react"
 import axios from "axios"
-import { useRouter } from "expo-router";
+import { useRouter } from "expo-router"
 
 export default function Register() {
     const [name, setName] = useState<string>("")
     const [age, setAge] = useState<string>("")
     const [email, setEmail] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
-    const [message, setMessage] = useState<string>("");
+    const [password, setPassword] = useState<string>("")
+    const [message, setMessage] = useState<string>("")
     const router = useRouter()
 
     const handleRegister = async () => {
         try {
             const response = await axios.post<{ message: string; user?: any }>(
-                "http://192.168.0.42:3000/register",
+                "http://192.168.0.50:3000/register",
                 { name, age, email, password }
             );
             setMessage(response.data.message);
@@ -25,7 +25,7 @@ export default function Register() {
         } catch (error: any) {
             setMessage(error.response?.data?.message || "Erro no cadastro");
         }
-    };
+    }
 
     return (
         <View style={styles.container}>
@@ -44,10 +44,10 @@ export default function Register() {
             </View>
 
             <TouchableOpacity style={styles.buttonRegister} onPress={handleRegister}>
-                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>Cadastrar</Text>
+                <Text style={{fontSize: 16, fontWeight: '700', color: '#fff'}}>Cadastrar</Text>        paddingTop: 30
             </TouchableOpacity>     
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
