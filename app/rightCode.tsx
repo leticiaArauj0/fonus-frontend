@@ -6,7 +6,7 @@ export default function rightCode() {
         <View style={styles.container}>
             <Text style={{fontSize: 40, fontWeight: 600, width: 300, textAlign: 'center', color: '#47065B'}}>Código confirmado</Text>
             <Image style={styles.image} source={require('../assets/images/correct.png')}/>
-            <Link href='\newPassword' asChild>
+            <Link href='\login' asChild>
                 <TouchableOpacity style={styles.button}>
                     <Text style={{fontSize: 18, fontWeight: 700, color: '#fff'}}>Continuar</Text>
                 </TouchableOpacity>

@@ -19,7 +19,7 @@ export default function ChildInfo() {
     const [age, setAge] = useState('')
     const [dropdown, setDropdown] = useState(null);
 
-    const [selected, setSelected] = useState<string[]>([]);
+    const [selected, setSelected] = useState<string[]>([])
 
     const _renderItem = (item: ItemType) => {
         return (

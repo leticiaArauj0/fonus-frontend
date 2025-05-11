@@ -15,7 +15,7 @@ export default function ExerciseCard({ title, description }: ExerciseProps) {
                 <Text style={styles.title}>{title}</Text>
                 <Text>{description}</Text>
 
-                <Link href='/exercise' asChild>
+                <Link href='/startExercise' asChild>
                     <TouchableOpacity style={styles.buttonStart}>
                         <Text style={{color: '#47065B'}}>Começar</Text>
                     </TouchableOpacity>

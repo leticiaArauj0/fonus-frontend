@@ -1,11 +1,14 @@
 import Header from "@/components/header";
 import { ArrowRight, Microphone } from "phosphor-react-native";
-import { View, Text, TouchableOpacity, StyleSheet, Platform } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Audio } from 'expo-av';
 import { useState } from "react";
 import { Recording } from "expo-av/build/Audio";
+import ArrowBack from "@/components/arrowBack";
 
 export default function Exercise() {
+    const [message, setMessage] = useState<string>('')
+    const [colorMessage, setColorMessage] = useState<string>('#99b83c')
     const [recording, setRecording] = useState<Recording | null>(null);
     const expected = 'a'
 
@@ -25,7 +28,7 @@ export default function Exercise() {
 
             setRecording(recording);
 
-            setTimeout(() => stopRecording(recording), 5000);
+            setTimeout(() => stopRecording(recording), 4000);
         } catch (err) {
             console.error("Erro ao gravar:", err);
         }
@@ -58,7 +61,7 @@ export default function Exercise() {
         formData.append('expected', expected);
       
         try {
-          const response = await fetch('http://localhost:3000/analyze', {
+          const response = await fetch('http://192.168.0.50:3000/analyze-local', {
             method: 'POST',
             headers: {
               'Content-Type': 'multipart/form-data',
@@ -76,9 +79,11 @@ export default function Exercise() {
           console.log('Resposta do servidor:', data);
       
           if (data.isCorrect) {
-            alert('Pronúncia correta!');
+            setMessage('Pronúncia correta!');
+            setColorMessage('#99b83c')
           } else {
-            alert(`Pronúncia incorreta. Você disse: "${data.result}"`);
+            setMessage(`Pronúncia incorreta. Você disse: "${data.result}". Tente novamente.`);
+            setColorMessage('#ff3131')
           }
       
         } catch (error) {
@@ -88,17 +93,25 @@ export default function Exercise() {
 
     return (
         <View style={styles.container}>
-            <Header arrow={'./home'} />
+            <ArrowBack color="#fff"/>
+            <Header />
 
             <View style={{ width: '100%', alignItems: 'center', gap: 20 }}>
-                <View style={styles.containerImage}></View>
+                <View style={{gap: 40, width: '100%', alignItems: 'center'}}>
+                    <Text style={{color: '#fff', fontSize: 22, fontWeight: 800}}>LIÇÃO 1</Text>
+                    <Text style={{color: '#c6c6c6', fontSize: 20, fontWeight: 800}}>Ouça e repita</Text>
+                </View>
+                <Text style={{fontSize: 18, fontWeight: 600, color: colorMessage, textAlign: 'center'}}>{message}</Text>
+                <View style={styles.containerImage}>
+                    <Image style={styles.image} source={require('@/assets/images/pronuncia/a.jpg')} />
+                </View>
 
                 <View style={styles.containerPhonetics}>
-                    <Text style={{ fontSize: 22, fontWeight: '700', color: '#000' }}>A</Text>
+                    <Text style={{ fontSize: 22, fontWeight: '700', color: '#000', textTransform: 'uppercase'}}>A</Text>
                 </View>
             </View>
 
-            <View style={{ gap: 30, alignItems: 'center' }}>
+            <View style={{ gap: 30, alignItems: 'center', marginTop: 60}}>
                 <TouchableOpacity onPress={startRecording}>
                     <Microphone size={40} weight="fill" color="#fff" />
                 </TouchableOpacity>
@@ -108,7 +121,7 @@ export default function Exercise() {
                 </TouchableOpacity>
             </View>
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -116,7 +129,6 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         alignItems: 'center',
-        gap: 100,
         backgroundColor: '#47065B',
         paddingTop: 30,
         paddingHorizontal: 30
@@ -125,7 +137,9 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 260,
         backgroundColor: '#fff',
-        borderRadius: 20
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     containerPhonetics: {
         height: 50,
@@ -143,5 +157,9 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderColor: '#fff',
         borderWidth: 1
+    },
+    image: {
+        height: 240,
+        width: '80%'
     }
-});
+})

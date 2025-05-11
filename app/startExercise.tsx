@@ -1,8 +1,12 @@
+import ArrowBack from "@/components/arrowBack";
+import { Link } from "expo-router";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function startExercise() {
     return(
         <View style={styles.container}>
+            <ArrowBack color="#47065B"/>
+
             <View style={{gap: 20}}>
                 <View style={styles.containerFase}>
                     <Text style={{fontSize: 16, fontWeight: '700', color: '#000'}}>Fase 1</Text>
@@ -17,9 +21,11 @@ export default function startExercise() {
                     </View>
                 </View>
             </View>
-            <TouchableOpacity style={styles.button}>
-                <Text style={{fontSize: 16, color: '#fff', fontWeight: '700'}}>Começar</Text>
-            </TouchableOpacity>
+            <Link href='/exercise' asChild>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={{fontSize: 16, color: '#fff', fontWeight: '700'}}>Começar</Text>
+                </TouchableOpacity>
+            </Link>
         </View>
     )
 }

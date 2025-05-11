@@ -1,19 +1,9 @@
-import { Link, RelativePathString } from "expo-router";
-import { CaretLeft } from "phosphor-react-native";
+import { Link } from "expo-router";
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-interface HeaderProps {
-    arrow: RelativePathString,
-}
-
-export default function Header({ arrow }: HeaderProps) {
+export default function Header() {
     return(
         <View style={styles.container}>
-            <Link href={arrow} asChild>
-                <TouchableOpacity>
-                    <CaretLeft color="#fff" size={32} />
-                </TouchableOpacity>
-            </Link>
             <Link href='./perfil' asChild>
                 <TouchableOpacity>
                     <Image style={styles.image} source={require('../assets/images/perfil.jpg')} />
@@ -28,7 +18,7 @@ const styles = StyleSheet.create({
         width: 340, 
         height: 50,
  
-        justifyContent: 'space-between', 
+        justifyContent: 'flex-end', 
         flexDirection: 'row',
         alignItems: 'center',
 

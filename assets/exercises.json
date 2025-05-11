@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Exercício 1",
+        "description": "Exercício de articulação com a letra A",
+        "condition": "Apraxia",
+        "level": 1
+    },
+    {
+        "title": "Exercício 2",
+        "description": "Exercício de repetição com sílabas PA, PE, PI",
+        "condition": "Dislalia",
+        "level": 1
+    },
+    {
+        "title": "Exercício 3",
+        "description": "Exercício de leitura com entonação",
+        "condition": "Apraxia",
+        "level": 2
+    },
+    {
+        "title": "Exercício 4",
+        "description": "Exercício de identificação de sons",
+        "condition": "Disfemia",
+        "level": 2
+    },
+    {
+        "title": "Exercício 5",
+        "description": "Exercício de fluência com trava-línguas",
+        "condition": "Disfemia",
+        "level": 3
+    }
+]

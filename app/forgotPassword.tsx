@@ -1,9 +1,12 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 import { Link } from "expo-router"
+import ArrowBack from "@/components/arrowBack";
 
 export default function forgotPassword() {
     return(
         <View style={styles.container}>
+            <ArrowBack color="#47065B"/>
+            
             <Text style={{fontSize: 40, width: 320, color: '#47065B', textAlign: 'center', fontWeight: 600}}>Esqueci minha senha</Text>
             <Text style={{fontSize: 16}}>Por favor, digite seu e-mail:</Text>
 

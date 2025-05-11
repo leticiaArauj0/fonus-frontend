@@ -1,9 +1,12 @@
+import ArrowBack from "@/components/arrowBack";
 import { Link } from "expo-router";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Code() {
     return(
         <View style={styles.container}>
+            <ArrowBack color="#47065B"/>
+
             <Text style={{fontSize: 36, color: '#47065B', textAlign: "center"}}>Digite o código de verificação</Text>
             <View style={{flexDirection: 'row', gap: 10}}>
                 <TextInput keyboardType="number-pad" style={styles.input} />

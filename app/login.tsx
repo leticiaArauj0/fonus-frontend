@@ -3,6 +3,7 @@ import { View, TextInput, TouchableOpacity, Text, StyleSheet } from "react-nativ
 import axios from "axios"
 import { useRouter, Link } from "expo-router";
 import { useAuth } from "../auth/AuthContext";
+import ArrowBack from "@/components/arrowBack";
 
 export default function Login() {
     const [email, setEmail] = useState<string>("");
@@ -12,7 +13,30 @@ export default function Login() {
 
     const { login } = useAuth();
 
+    const validateFields = () => {
+        const trimmedEmail = email.trim();
+        const trimmedPassword = password.trim();
+    
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isEmailValid = emailRegex.test(trimmedEmail);
+        const isPasswordValid = trimmedPassword.length >= 8;
+    
+        if (!isEmailValid) {
+            setMessage("E-mail inválido.");
+            return false;
+        }
+    
+        if (!isPasswordValid) {
+            setMessage("A senha deve ter no mínimo 8 caracteres.");
+            return false;
+        }
+    
+        return true;
+    }
+
     const handleLogin = async () => {
+        if (!validateFields()) return
+
         try {
             const response = await axios.post<{ message: string; user?: { name: string; email: string, childName: string, childAge: string }}>(
                 "http://192.168.0.50:3000/login",
@@ -39,6 +63,7 @@ export default function Login() {
 
     return (
         <View style={styles.container}>
+            <ArrowBack color="#47065B"/>
             <Text style={{fontSize: 36, color: '#47065B'}}>Login</Text>
 
             <View>

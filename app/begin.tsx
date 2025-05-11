@@ -1,9 +1,12 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";  
 import { Link } from "expo-router";
+import ArrowBack from "@/components/arrowBack";
 
 export default function Begin() {
     return (
         <View style={styles.container}>
+            <ArrowBack color="#fff" />
+
             <Text style={styles.title}>Olá!</Text>
             <Text style={styles.text}>Antes de começarmos a consulta:</Text>
 
