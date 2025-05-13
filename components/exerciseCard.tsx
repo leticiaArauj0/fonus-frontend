@@ -1,13 +1,31 @@
-import { Link } from "expo-router";
+import { router } from "expo-router";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
+
+type LessonOucaRepita = {
+    type: string;
+    number: number;
+    imageUrl?: string;
+    phonetic?: string;
+  };
+  
+  type LessonAssocie = {
+    type: string;
+    number: number;
+    words: string[];
+    vowel: string[];
+  };
+  
+export type Lesson = LessonOucaRepita | LessonAssocie;
+  
 
 interface ExerciseProps {
     title: string,
     description: string,
-    image?: string
+    image?: string,
+    lessons: Lesson[]
 }
 
-export default function ExerciseCard({ title, description }: ExerciseProps) {
+export default function ExerciseCard({ title, description, lessons }: ExerciseProps) {
     return(
         <View style={styles.container}>
             <Image style={styles.image} source={require('../assets/images/exercise.jpg')} />
@@ -15,11 +33,16 @@ export default function ExerciseCard({ title, description }: ExerciseProps) {
                 <Text style={styles.title}>{title}</Text>
                 <Text>{description}</Text>
 
-                <Link href='/startExercise' asChild>
-                    <TouchableOpacity style={styles.buttonStart}>
-                        <Text style={{color: '#47065B'}}>Começar</Text>
-                    </TouchableOpacity>
-                </Link>
+                <TouchableOpacity 
+                    style={styles.buttonStart} 
+                    onPress={() =>router.push({
+                        pathname: "/lessons",
+                        params: {
+                        lessons: JSON.stringify(lessons),
+                    },
+                })}>
+                    <Text style={{color: '#47065B'}}>Começar</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )

@@ -6,11 +6,27 @@ import { useState } from "react";
 import { Recording } from "expo-av/build/Audio";
 import ArrowBack from "@/components/arrowBack";
 
-export default function Exercise() {
+const imageMap: Record<string, any> = {
+    "bola": require('@/assets/images/exercise/bola.jpeg'),
+    "gato": require('@/assets/images/exercise/gato.jpg'),
+    "casa": require('@/assets/images/exercise/casa.jpg'),
+    "peixe": require('@/assets/images/exercise/peixe.jpg'),
+    "trem": require('@/assets/images/exercise/trem.jpg'),
+    "dragao": require('@/assets/images/exercise/dragao.jpg'),
+    "escada": require('@/assets/images/exercise/escada.png')
+}
+
+interface ExerciceProps {
+    number: number,
+    imgUrl: string,
+    phonetic: string;
+}
+
+export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
     const [message, setMessage] = useState<string>('')
     const [colorMessage, setColorMessage] = useState<string>('#99b83c')
     const [recording, setRecording] = useState<Recording | null>(null);
-    const expected = 'a'
+    const expected = phonetic
 
     async function startRecording() {
         try {
@@ -89,7 +105,7 @@ export default function Exercise() {
         } catch (error) {
           console.error('Erro ao enviar áudio:', error);
         }
-    }      
+    }
 
     return (
         <View style={styles.container}>
@@ -98,16 +114,16 @@ export default function Exercise() {
 
             <View style={{ width: '100%', alignItems: 'center', gap: 20 }}>
                 <View style={{gap: 40, width: '100%', alignItems: 'center'}}>
-                    <Text style={{color: '#fff', fontSize: 22, fontWeight: 800}}>LIÇÃO 1</Text>
+                    <Text style={{color: '#fff', fontSize: 22, fontWeight: 800}}>LIÇÃO {number}</Text>
                     <Text style={{color: '#c6c6c6', fontSize: 20, fontWeight: 800}}>Ouça e repita</Text>
                 </View>
                 <Text style={{fontSize: 18, fontWeight: 600, color: colorMessage, textAlign: 'center'}}>{message}</Text>
                 <View style={styles.containerImage}>
-                    <Image style={styles.image} source={require('@/assets/images/pronuncia/a.jpg')} />
+                    <Image style={styles.image} source={imageMap[imgUrl]} />
                 </View>
 
                 <View style={styles.containerPhonetics}>
-                    <Text style={{ fontSize: 22, fontWeight: '700', color: '#000', textTransform: 'uppercase'}}>A</Text>
+                    <Text style={{ fontSize: 22, fontWeight: '700', color: '#000', textTransform: 'uppercase'}}>{phonetic}</Text>
                 </View>
             </View>
 
@@ -139,7 +155,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 20,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 30
     },
     containerPhonetics: {
         height: 50,
@@ -159,7 +176,7 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     image: {
-        height: 240,
-        width: '80%'
+        height: '100%',
+        width: '100%'
     }
 })

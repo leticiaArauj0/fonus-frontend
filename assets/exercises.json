@@ -1,32 +1,276 @@
 [
     {
-        "title": "Exercício 1",
-        "description": "Exercício de articulação com a letra A",
-        "condition": "Apraxia",
-        "level": 1
+      "title": "Exercício 1",
+      "description": "Sons Iniciais",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
     },
     {
-        "title": "Exercício 2",
-        "description": "Exercício de repetição com sílabas PA, PE, PI",
-        "condition": "Dislalia",
-        "level": 1
+      "title": "Exercício 2",
+      "description": "Sons Iniciais",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "casa",
+          "phonetic": "CASA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "mamae",
+          "phonetic": "MAMÃE"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "papai",
+          "phonetic": "PAPAI"
+        }
+      ]
     },
     {
-        "title": "Exercício 3",
-        "description": "Exercício de leitura com entonação",
-        "condition": "Apraxia",
-        "level": 2
+      "title": "Exercício 3",
+      "description": "Sons Iniciais",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "peixe",
+          "phonetic": "PEIXE"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "vaca",
+          "phonetic": "VACA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "sofa",
+          "phonetic": "SOFÁ"
+        }
+      ]
     },
     {
-        "title": "Exercício 4",
-        "description": "Exercício de identificação de sons",
-        "condition": "Disfemia",
-        "level": 2
+      "title": "Exercício 1",
+      "description": "Som: TR",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "trem",
+          "phonetic": "TREM"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "trator",
+          "phonetic": "TRATOR"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "traco",
+          "phonetic": "TRAÇO"
+        }
+      ]
     },
     {
-        "title": "Exercício 5",
-        "description": "Exercício de fluência com trava-línguas",
-        "condition": "Disfemia",
-        "level": 3
+      "title": "Exercício 2",
+      "description": "Som: DR",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "dragao",
+          "phonetic": "DRAGÃO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "drama",
+          "phonetic": "DRAMA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "dracula",
+          "phonetic": "DRÁCULA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Som: SC",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "escada",
+          "phonetic": "ESCADA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "pa",
+          "phonetic": "PA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "ba",
+          "phonetic": "BA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "po",
+          "phonetic": "PO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "pedro",
+          "phonetic": "Pedro pegou o prato"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "pedro",
+          "phonetic": "O gato correu atrás da porta"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
     }
 ]

@@ -12,13 +12,23 @@ const images = [
 
 export default function Form() {
     const [index, setIndex] = useState(0)
+    const [answers, setAnswers] = useState<string[]>(new Array(questionsData.length).fill(null));
 
     const handleNext = () => {
         if (index < questionsData.length - 1) {
           setIndex(index + 1)
         } else {
-            router.push('/loadingAnswers')
+            router.push({
+                pathname: "/loadingAnswers",
+                params: { answers: JSON.stringify(answers) }
+            });
         }
+    }
+
+    const handleAnswer = (answer: string) => {
+        const updated = [...answers];
+        updated[index] = answer;
+        setAnswers(updated);
     }
 
     const current = questionsData[index]
@@ -36,22 +46,28 @@ export default function Form() {
             ) : null}
 
             <View style={{flexDirection: 'row', gap: 30}}>
-                <TouchableOpacity style={styles.choise}>
-                    <Text style={{color: '#47065B', fontSize: 20, fontWeight: 700}}>Sim</Text>
+                <TouchableOpacity 
+                    style={[styles.choise, answers[index] === 'Sim' && styles.choiseSelected]} 
+                    onPress={() => handleAnswer('Sim')}
+                >
+                    <Text style={{color: '#47065B', fontSize: 20, fontWeight: '700'}}>Sim</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.choise}>
-                    <Text style={{color: '#47065B', fontSize: 18, fontWeight: 700}}>Não</Text>
+                <TouchableOpacity 
+                    style={[styles.choise, answers[index] === 'Não' && styles.choiseSelected]} 
+                    onPress={() => handleAnswer('Não')}
+                >
+                    <Text style={{color: '#47065B', fontSize: 20, fontWeight: '700'}}>Não</Text>
                 </TouchableOpacity>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={handleNext}>
-                <Text style={{color: '#fff', fontWeight: 700, fontSize: 16}}>Avançar</Text>
+            <TouchableOpacity 
+                style={[styles.button, { opacity: answers[index] ? 1 : 0.7 }]}
+                onPress={handleNext}
+                disabled={!answers[index]}
+            >
+                <Text style={{color: '#fff', fontWeight: '700', fontSize: 16}}>Avançar</Text>
             </TouchableOpacity>
-
-           {/*<TouchableOpacity onPress={() => setIndex(prev => Math.max(0, prev - 1))}>
-                <Text>Voltar</Text>
-            </TouchableOpacity>*/}
         </View>
     )
 }
@@ -96,5 +112,8 @@ const styles = StyleSheet.create({
         
         backgroundColor: '#47065B',
         borderRadius: 20,
-    }
+    },
+    choiseSelected: {
+        backgroundColor: '#47065B40',
+    },      
 })

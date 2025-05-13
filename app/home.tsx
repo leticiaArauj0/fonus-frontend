@@ -5,6 +5,7 @@ import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { Dropdown } from 'react-native-element-dropdown';
 import { useState } from "react";
 import { useAuth } from "@/auth/AuthContext";
+import exercises from '@/assets/exercises.json'
 
 const faseData = [
     {label: 'Fase 1', value: 1},
@@ -18,15 +19,24 @@ type ItemType = {
 }
 
 export default function Home() {
-    const [dropdown, setDropdown] = useState(null);
-    const [selectedFase, setSelectedFase] = useState('');
-    const [selectedConditions, setSelectedConditions] = useState('');
     const { user } = useAuth()
+
+    const [selectedCondition, setSelectedCondition] = useState<string | null>(
+        user?.conditions ? user.conditions[0] : null
+    )
+    const [selectedLevel, setSelectedLevel] = useState<number>(1)
 
     const conditionOptions = (user?.conditions || []).map(condition => ({
         label: condition,
         value: condition
     }));
+
+    const filteredExercises = exercises.filter(ex => {
+        return (
+          (!selectedCondition || ex.condition === selectedCondition) &&
+          (!selectedLevel || ex.level === selectedLevel)
+        )
+    })
 
     const _renderItem = (item: ItemType) => {
         return (
@@ -46,12 +56,8 @@ export default function Home() {
                     data={conditionOptions}
                     labelField="label"
                     valueField="value"
-                    placeholder={user?.conditions ? user?.conditions[0] : "Condição 1"}
-                    value={dropdown}
-                    onChange={item => {
-                    setDropdown(item.value);
-                        console.log('selected', item);
-                    }}
+                    value={selectedCondition}
+                    onChange={item => setSelectedCondition(item.value)}
                     renderItem={item => _renderItem(item)}
                 />
                 <Dropdown
@@ -59,23 +65,26 @@ export default function Home() {
                     data={faseData}
                     labelField="label"
                     valueField="value"
-                    placeholder="Fase 1"
-                    value={dropdown}
-                    onChange={item => {
-                    setDropdown(item.value);
-                        console.log('selected', item);
-                    }}
+                    value={selectedLevel}
+                    onChange={item => setSelectedLevel(item.value)}
                     renderItem={item => _renderItem(item)}
                 />
             </View>           
             
             <ScrollView style={{maxHeight: '70%'}}>
-                <ExerciseCard title="Exercício 1" description="Olá, esse é um exercício de..."/>
-                <ExerciseCard title="Exercício 2" description="Olá, esse é um exercício de..."/>
-                <ExerciseCard title="Exercício 3" description="Olá, esse é um exercício de..."/>
-                <ExerciseCard title="Exercício 4" description="Olá, esse é um exercício de..."/>
-                <ExerciseCard title="Exercício 4" description="Olá, esse é um exercício de..."/>
-                <ExerciseCard title="Exercício 4" description="Olá, esse é um exercício de..."/>
+                {filteredExercises.map((ex, idx) => (
+                    <ExerciseCard
+                        key={idx}
+                        title={ex.title}
+                        description={ex.description}
+                        lessons={ex.lessons}
+                    />
+                ))}
+                {filteredExercises.length === 0 && (
+                    <Text style={{ color: '#fff', textAlign: 'center', marginTop: 20 }}>
+                        Nenhum exercício encontrado.
+                    </Text>
+                )}
             </ScrollView> 
 
             <Navbar />

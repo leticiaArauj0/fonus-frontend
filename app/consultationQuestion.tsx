@@ -13,7 +13,7 @@ export default function ConsultationQuestion() {
                     </TouchableOpacity>
                 </Link>
 
-                <Link href='/difficultyQuestion' asChild>
+                <Link href='/startQuestionnaire' asChild>
                     <TouchableOpacity style={styles.button}>
                         <Text style={{fontSize: 16, fontWeight: '700', color: '#47065B'}}>Não</Text>
                     </TouchableOpacity>
