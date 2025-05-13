@@ -51,7 +51,7 @@ export default function Register() {
 
         try {
             const response = await axios.post<{ message: string; user?: any }>(
-                "http://192.168.0.50:3000/register",
+                "https://fonus-backend.onrender.com/register",
                 { name, age, email, password }
             );
             setMessage(response.data.message);

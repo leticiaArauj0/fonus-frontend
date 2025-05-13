@@ -46,7 +46,7 @@ export default function DifficultyQuestion() {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.put("http://192.168.0.50:3000/update-conditions", {
+            const response = await axios.put("https://fonus-backend.onrender.com/update-conditions", {
                 email: user?.email,
                 conditions: selectedConditions,
             });

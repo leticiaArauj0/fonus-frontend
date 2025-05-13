@@ -39,7 +39,7 @@ export default function Login() {
 
         try {
             const response = await axios.post<{ message: string; user?: { name: string; email: string, childName: string, childAge: string }}>(
-                "http://192.168.0.50:3000/login",
+                "https://fonus-backend.onrender.com/login",
                 { email, password }
             );
 

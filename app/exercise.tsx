@@ -3,6 +3,7 @@ import { ArrowRight, Microphone } from "phosphor-react-native";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Audio } from 'expo-av';
 import { useState } from "react";
+import * as FileSystem from 'expo-file-system';
 import { Recording } from "expo-av/build/Audio";
 import ArrowBack from "@/components/arrowBack";
 
@@ -44,7 +45,7 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
 
             setRecording(recording);
 
-            setTimeout(() => stopRecording(recording), 4000);
+            setTimeout(() => stopRecording(recording), 3000);
         } catch (err) {
             console.error("Erro ao gravar:", err);
         }
@@ -52,16 +53,24 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
 
     async function stopRecording(rec: Recording) {
         try {
-            await rec.stopAndUnloadAsync();
-            const uri = rec.getURI();
-            setRecording(null);
-            if (uri) {
-                await uploadAudio(uri, expected);
-            } else {
-                console.error('Erro: URI da gravação é null.');
-            }
+          await rec.stopAndUnloadAsync();
+          const uri = rec.getURI();
+      
+          setRecording(null);
+      
+          if (uri) {
+            const newUri = FileSystem.documentDirectory + `audio-${Date.now()}.m4a`;
+            await FileSystem.copyAsync({
+              from: uri,
+              to: newUri
+            });
+      
+            await uploadAudio(newUri, expected);
+          } else {
+            console.error('Erro: URI da gravação é null.');
+          }
         } catch (err) {
-            console.error("Erro ao parar gravação:", err);
+          console.error("Erro ao parar gravação:", err);
         }
     }
 
@@ -77,7 +86,7 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
         formData.append('expected', expected);
       
         try {
-          const response = await fetch('http://192.168.0.50:3000/analyze-local', {
+          const response = await fetch('https://fonus-backend.onrender.com/analyze-local', {
             method: 'POST',
             headers: {
               'Content-Type': 'multipart/form-data',
