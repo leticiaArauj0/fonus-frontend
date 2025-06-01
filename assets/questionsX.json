@@ -1,0 +1,47 @@
+  [
+      {
+        "title": "Audição",
+        "number": "1 de 1",
+        "question": "Seu filho escuta quando você o chama?"
+      },
+      {
+        "title": "Expressão verbal",
+        "number": "1 de 3",
+        "question": "Ele faz contato visual durante uma conversação?"
+      },
+      {
+        "title": "Expressão verbal",
+        "number": "2 de 3",
+        "question": "Ele troca ou emite sons?"
+      },
+      {
+        "title": "Expressão verbal",
+        "number": "3 de 3",
+        "question": "Ele costuma repetir palavras ou frases que ele ouve?"
+      },
+      {
+        "title": "Expressão não verbal",
+        "number": "1 de 1",
+        "question": "Ele utiliza gestos (como: apontar, acenar ou balançar a cabeça) para se comunicar?"
+      },
+      {
+        "title": "Fala",
+        "number": "1 de 4",
+        "question": "Ele aprende novas palavras com facilidade?"
+      },
+      {
+        "title": "Fala",
+        "number": "2 de 4",
+        "question": "Ele costuma inventar novas palavras ou adaptar palavras difíceis?"
+      },
+      {
+        "title": "Fala",
+        "number": "3 de 4",
+        "question": "Ele canta músicas ou recita rimas infantis?"
+      },
+      {
+        "title": "Fala",
+        "number": "4 de 4",
+        "question": "Ele consegue acompanhar falas?"
+      }
+  ]

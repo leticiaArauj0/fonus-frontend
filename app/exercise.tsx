@@ -2,10 +2,11 @@ import Header from "@/components/header";
 import { ArrowRight, Microphone } from "phosphor-react-native";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Audio } from 'expo-av';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as FileSystem from 'expo-file-system';
 import { Recording } from "expo-av/build/Audio";
 import ArrowBack from "@/components/arrowBack";
+import { Link, useLocalSearchParams, useRouter } from "expo-router";
 
 const imageMap: Record<string, any> = {
     "bola": require('@/assets/images/exercise/bola.jpeg'),
@@ -17,20 +18,42 @@ const imageMap: Record<string, any> = {
     "escada": require('@/assets/images/exercise/escada.png')
 }
 
-interface ExerciceProps {
-    number: number,
-    imgUrl: string,
-    phonetic: string;
+interface Lesson {
+  number: number;
+  imgUrl: string;
+  phonetic: string;
+  type: string;
 }
 
-export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
+interface ExerciceProps {
+  currentLesson: Lesson;
+  allLessons: Lesson[];
+  onComplete: () => void;
+  title: string;
+}
+
+export default function Exercise(props: ExerciceProps) {
+    const { currentLesson: paramLesson, allLessons: paramLessons } = useLocalSearchParams();
+    
+    const currentLesson = paramLesson ? JSON.parse(paramLesson as string) : props.currentLesson;
+    const allLessons = paramLessons ? JSON.parse(paramLessons as string) : props.allLessons;
+    
+    const { number, imgUrl, phonetic } = currentLesson;
+    
     const [message, setMessage] = useState<string>('')
-    const [colorMessage, setColorMessage] = useState<string>('#99b83c')
     const [recording, setRecording] = useState<Recording | null>(null);
+    const [isRecording, setIsRecording] = useState<boolean>(false);
+    const [isCorrect, setIsCorrect] = useState<boolean>(false);
+    const [attempts, setAttempts] = useState(0);
     const expected = phonetic
 
+    const router = useRouter();
+    
     async function startRecording() {
         try {
+            if (isRecording) return;
+            setIsRecording(true);
+
             const permission = await Audio.requestPermissionsAsync();
             if (!permission.granted) return;
 
@@ -45,7 +68,15 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
 
             setRecording(recording);
 
-            setTimeout(() => stopRecording(recording), 3000);
+            setTimeout(async () => {
+                try {
+                    await stopRecording(recording);
+                } catch (err) {
+                    console.error("Erro ao parar gravação:", err);
+                } finally {
+                    setIsRecording(false);
+                }
+            }, 3000);
         } catch (err) {
             console.error("Erro ao gravar:", err);
         }
@@ -71,11 +102,14 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
           }
         } catch (err) {
           console.error("Erro ao parar gravação:", err);
+          throw err;
         }
     }
 
     async function uploadAudio(uri: string, expected: string) {
         const formData = new FormData();
+
+        setAttempts(prev => prev + 1);
       
         formData.append('audio', {
           uri,
@@ -86,7 +120,7 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
         formData.append('expected', expected);
       
         try {
-          const response = await fetch('https://fonus-backend.onrender.com/analyze-local', {
+          const response = await fetch('https://fonus-backend.onrender.com/analyze-deepgram', {
             method: 'POST',
             headers: {
               'Content-Type': 'multipart/form-data',
@@ -105,16 +139,41 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
       
           if (data.isCorrect) {
             setMessage('Pronúncia correta!');
-            setColorMessage('#99b83c')
+            setIsCorrect(true)
           } else {
             setMessage(`Pronúncia incorreta. Você disse: "${data.result}". Tente novamente.`);
-            setColorMessage('#ff3131')
+            setIsCorrect(false)
           }
       
         } catch (error) {
           console.error('Erro ao enviar áudio:', error);
         }
     }
+
+    const handleNextLesson = () => {
+        const currentIndex = allLessons.findIndex((lesson: { number: any; }) => lesson.number === number);
+        const nextLesson = allLessons[currentIndex + 1];
+        
+        if (nextLesson) {
+            router.replace({
+                pathname: '/exercise',
+                params: {
+                    currentLesson: JSON.stringify(nextLesson),
+                    allLessons: JSON.stringify(allLessons),
+                }
+            });
+        } else {
+            router.push({
+                pathname: '/exerciseDone',
+                params: {
+                    attempts: attempts.toString(),
+                    exerciseTitle: props.title,
+                }
+            });
+        }
+    };  
+
+    console.log(props.title)
 
     return (
         <View style={styles.container}>
@@ -126,9 +185,9 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
                     <Text style={{color: '#fff', fontSize: 22, fontWeight: 800}}>LIÇÃO {number}</Text>
                     <Text style={{color: '#c6c6c6', fontSize: 20, fontWeight: 800}}>Ouça e repita</Text>
                 </View>
-                <Text style={{fontSize: 18, fontWeight: 600, color: colorMessage, textAlign: 'center'}}>{message}</Text>
+                <Text style={{fontSize: 18, fontWeight: 600, color: isCorrect ? "#99b83c" : "#ff3131", textAlign: 'center'}}>{message}</Text>
                 <View style={styles.containerImage}>
-                    <Image style={styles.image} source={imageMap[imgUrl]} />
+                    <Image style={styles.image} resizeMode="contain" source={imageMap[imgUrl]} />
                 </View>
 
                 <View style={styles.containerPhonetics}>
@@ -137,13 +196,22 @@ export default function Exercise({number, imgUrl, phonetic}: ExerciceProps) {
             </View>
 
             <View style={{ gap: 30, alignItems: 'center', marginTop: 60}}>
-                <TouchableOpacity onPress={startRecording}>
-                    <Microphone size={40} weight="fill" color="#fff" />
+                <TouchableOpacity 
+                  onPress={startRecording}
+                  disabled={isRecording}
+                >
+                    <Microphone size={40} weight="fill" color={isRecording ? "#00DE00" : "#fff"} />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.button}>
-                    <ArrowRight size={40} color="#fff" />
-                </TouchableOpacity>
+                {isCorrect ? 
+                    <TouchableOpacity 
+                      style={styles.button}
+                      onPress={() => handleNextLesson()}
+                    >
+                        <ArrowRight size={40} color="#fff" />
+                    </TouchableOpacity>
+                : 
+                null}
             </View>
         </View>
     )

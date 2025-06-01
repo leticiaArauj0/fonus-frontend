@@ -1,15 +1,17 @@
-import { Link } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { Star } from "phosphor-react-native";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function exerciseDone() {
+    const { exerciseTitle, attempts } = useLocalSearchParams();
+
     return(
         <View style={styles.container}>
             <View style={styles.containerInfo}>
                 <View style={{gap: 20, flexDirection: 'row'}}>
                     <Image style={styles.image} source={require('../assets/images/exercise.jpg')} />
                     <View style={{gap: 10}}>
-                        <Text style={{fontSize: 20, fontWeight: '700', color: '#47065B'}}>Exercício 1</Text>
+                        <Text style={{fontSize: 20, fontWeight: '700', color: '#47065B'}}>{exerciseTitle}</Text>
                         <View style={{gap: 5, flexDirection: 'row'}}>
                             <Star size={20} weight="fill" color='#ffc30f' />
                             <Star size={20} weight="fill" color='#ffc30f' />
@@ -21,9 +23,9 @@ export default function exerciseDone() {
                 </View>
 
                 <View>
-                    <Text>Número de acertos:</Text>
-                    <Text>Número de tarefas:</Text>
-                    <Text>Número de acertos:</Text>
+                    <Text>Número de tarefas: 3</Text>
+                    <Text>Número de tentativas: {attempts}</Text>
+                    <Text>Número de acertos: 3</Text>
                 </View>
 
                 <TouchableOpacity style={styles.button}>

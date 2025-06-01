@@ -1,23 +1,24 @@
 import { useLocalSearchParams } from "expo-router";
-import { View } from "react-native";
 import Exercise from "./exercise";
-import ExerciseLink from "./exerciseLink";
+import { useState } from "react";
 
 export default function Lessons() {
-  const { lessons } = useLocalSearchParams();
+  const { lessons, title } = useLocalSearchParams();
   const parsedLessons = typeof lessons === "string" ? JSON.parse(lessons) : [];
+  const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
+
+  const handleLessonComplete = () => {
+    if (currentLessonIndex < parsedLessons.length - 1) {
+      setCurrentLessonIndex(currentLessonIndex + 1);
+    }
+  };
 
   return (
-    <View>
-      {parsedLessons.map((lesson: any, idx: any) => (
-        <View key={idx}>
-          {lesson.type === "ouca-repita" ? (
-            <Exercise number={lesson.number} phonetic={lesson.phonetic} imgUrl={lesson.imageUrl} />
-          ) : (
-            <ExerciseLink number={lesson.number}/>
-          )}
-        </View>
-      ))}
-    </View>
+    <Exercise 
+      currentLesson={parsedLessons[currentLessonIndex]}
+      allLessons={parsedLessons}
+      onComplete={handleLessonComplete}
+      title={title as string}
+    />
   );
 }

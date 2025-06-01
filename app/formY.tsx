@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import questionsData from '../assets/questionsX.json';
+import questionsData from '../assets/questionsY.json';
 import { router } from "expo-router";
 
-export default function Form() {
+const images = [
+    require('../assets/images/question1.jpeg'),
+    require('../assets/images/question2.jpeg'),
+    require('../assets/images/question3.jpeg'),
+]
+
+
+export default function FormY() {
     const [index, setIndex] = useState(0)
     const [answers, setAnswers] = useState<string[]>(new Array(questionsData.length).fill(null));
 
@@ -11,10 +18,7 @@ export default function Form() {
         if (index < questionsData.length - 1) {
           setIndex(index + 1)
         } else {
-            router.push({
-                pathname: "/loadingAnswers",
-                params: { answers: JSON.stringify(answers) }
-            });
+            router.push("/loadingExercise");
         }
     }
 
@@ -29,10 +33,13 @@ export default function Form() {
     return(
         <View style={styles.container}>
             <View style={{alignItems: 'center'}}>
-                <Text style={{fontSize: 40, color: '#47065B', textAlign: "center", fontWeight: 600, width: 300}}>{current.title}</Text>
                 <Text style={{marginTop: 5, marginBottom: 20}}>{current.number}</Text>
                 <Text style={{textAlign: 'center', color: '#47065B', fontSize: 18, width: 300}}>{current.question}</Text>
             </View>
+
+            {current.image ? (
+                <Image style={styles.image} source={images[current.image-1]} />
+            ) : null}
 
             <View style={{flexDirection: 'row', gap: 30}}>
                 <TouchableOpacity 

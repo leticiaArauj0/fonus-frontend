@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Link } from "expo-router"
+import { Link, router } from "expo-router"
 
 export default function ConsultationQuestion() {
     return(
@@ -19,11 +19,17 @@ export default function ConsultationQuestion() {
                     </TouchableOpacity>
                 </Link>
 
-                <Link href='/difficultyQuestion' asChild>
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={{fontSize: 15, fontWeight: '700', color: '#47065B', textAlign: 'center', paddingHorizontal: 30}}>Começou, mas não terminou o tratamento</Text>
-                    </TouchableOpacity>
-                </Link>
+                <TouchableOpacity 
+                    style={styles.button}
+                    onPress={() => {
+                    router.push({
+                        pathname: '/difficultyQuestion',
+                        params: { nextScreen: '/formY' }
+                    });
+                    }}
+                >
+                    <Text style={{fontSize: 15, fontWeight: '700', color: '#47065B', textAlign: 'center', paddingHorizontal: 30}}>Começou, mas não terminou o tratamento</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )

@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Link, useRouter } from "expo-router"
+import { useLocalSearchParams, useRouter } from "expo-router"
 import { MultiSelect } from 'react-native-element-dropdown';
 import { useState } from "react";
 import { useAuth } from "@/auth/AuthContext";
@@ -35,6 +35,9 @@ export default function DifficultyQuestion() {
     const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([]);
     const [selectedConditions, setSelectedConditions] = useState<string[]>([]);
 
+    const params = useLocalSearchParams();
+    const nextScreen = params.nextScreen as string | undefined;
+
     const _renderItem = (item: ItemType, selected: boolean | undefined) => (
         <View style={styles.item}>
             <Text style={[styles.textItem, selected && styles.selectedText]}>{item.label}</Text>
@@ -54,7 +57,11 @@ export default function DifficultyQuestion() {
             console.log("Condições atualizadas com sucesso:", response.data);
 
             if(response.status === 200) {
-                router.push('/startQuestionnaire')
+                if (nextScreen) {
+                    router.push(nextScreen);
+                } else {
+                    router.push('/loadingExercise')
+                }       
             }
         } catch (error: any) {
             if (error.response) {

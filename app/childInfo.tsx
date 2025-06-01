@@ -39,7 +39,7 @@ export default function ChildInfo() {
         }
 
         try {
-            const response = await fetch("http://192.168.0.50:3000/update-child", {
+            const response = await fetch("https://fonus-backend.onrender.com/update-child", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

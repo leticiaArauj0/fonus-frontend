@@ -38,8 +38,9 @@ export default function ExerciseCard({ title, description, lessons }: ExercisePr
                     onPress={() =>router.push({
                         pathname: "/lessons",
                         params: {
-                        lessons: JSON.stringify(lessons),
-                    },
+                            lessons: JSON.stringify(lessons),
+                            title: title
+                        },
                 })}>
                     <Text style={{color: '#47065B'}}>Começar</Text>
                 </TouchableOpacity>
