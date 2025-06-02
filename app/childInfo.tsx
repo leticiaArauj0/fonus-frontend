@@ -29,7 +29,7 @@ export default function ChildInfo() {
         )
     }
 
-    const { user } = useAuth();
+    const { user, updateUserChild } = useAuth();
     const router = useRouter();
 
     const handleContinue = async () => {
@@ -54,6 +54,7 @@ export default function ChildInfo() {
             const data = await response.json();
 
             if (response.ok) {
+                updateUserChild(name, age)
                 router.push("/start");
             } else {
                 alert(data.message || "Erro ao atualizar os dados");

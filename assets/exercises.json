@@ -98,8 +98,8 @@
         {
           "type": "ouca-repita",
           "number": 3,
-          "imageUrl": "traco",
-          "phonetic": "TRAÇO"
+          "imageUrl": "transito",
+          "phonetic": "TRÂNSITO"
         }
       ]
     },
@@ -140,6 +140,18 @@
           "number": 1,
           "imageUrl": "escada",
           "phonetic": "ESCADA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "escova",
+          "phonetic": "ESCOVA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "escudo",
+          "phonetic": "ESCUDO"
         }
       ]
     },
@@ -232,6 +244,20 @@
           "number": 1,
           "imageUrl": "pedro",
           "phonetic": "Pedro pegou o prato"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "2-3",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
         },
         {
           "type": "ouca-repita",
@@ -249,27 +275,105 @@
     },
     {
       "title": "Exercício 2",
-      "description": "Sons Iniciais",
-      "condition": "Hipernasalidade",
-      "level": 2,
+      "description": "Repetição de palavras simples ",
+      "condition": "2-3",
+      "level": 1,
       "lessons": [
         {
           "type": "ouca-repita",
           "number": 1,
-          "imageUrl": "pedro",
-          "phonetic": "O gato correu atrás da porta"
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
         },
         {
           "type": "ouca-repita",
           "number": 2,
-          "imageUrl": "gato",
-          "phonetic": "GATO"
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
         },
         {
           "type": "ouca-repita",
           "number": 3,
-          "imageUrl": "pato",
-          "phonetic": "PATO"
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples ",
+      "condition": "2-3",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples ",
+      "condition": "4-5",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "Som: BR",
+          "number": 1,
+          "imageUrl": "brasil",
+          "phonetic": "BRASIL"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "brinco",
+          "phonetic": "BRINCO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "brisa",
+          "phonetic": "BRISA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Som: CR",
+      "condition": "6-7",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "creme",
+          "phonetic": "CREME"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "crianca",
+          "phonetic": "CRIANÇA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "criativo",
+          "phonetic": "CRIATIVO"
         }
       ]
     }

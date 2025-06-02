@@ -1,11 +1,12 @@
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { useEffect } from "react";
 import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
 
 export default function Exercise() {
+
     useEffect(() => {
         const timer = setTimeout(() => {
-          router.push('/home');
+            router.push("/home");
         }, 2000);
         
         return () => clearTimeout(timer);

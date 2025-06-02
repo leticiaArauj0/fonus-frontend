@@ -1,14 +1,23 @@
-import { useLocalSearchParams, Link } from "expo-router";
+import { useLocalSearchParams, Link, useRouter } from "expo-router";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 import { relatorios } from "@/assets/report";
+import { useAuth } from "@/auth/AuthContext";
 
 export default function Report() {
   const { faixa } = useLocalSearchParams() as { faixa: "2-3" | "4-5" | "6-7" };
+  const { updateAgeGroup } = useAuth()
   const relatorio = relatorios[faixa];
 
   if (!relatorio) return <Text>Faixa não encontrada.</Text>;
 
   const { height } = Dimensions.get("window");
+
+  const router = useRouter()
+
+  const handleSelectAgeGroup = async (ageGroup: '2-3' | '4-5' | '6-7') => {
+    await updateAgeGroup(ageGroup);
+    router.push('/loadingExercise');
+  };
 
   return (
     <View style={styles.container}>
@@ -36,11 +45,12 @@ export default function Report() {
           </View>
         </ScrollView>
       </View>
-      <Link href="/loadingExercise" asChild>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Gerar exercícios</Text>
-        </TouchableOpacity>
-      </Link>
+      <TouchableOpacity 
+        style={styles.button}
+        onPress={() => handleSelectAgeGroup(faixa)}
+      >
+        <Text style={styles.buttonText}>Gerar exercícios</Text>
+      </TouchableOpacity>
     </View>
   );
 }

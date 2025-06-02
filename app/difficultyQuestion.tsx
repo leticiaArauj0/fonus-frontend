@@ -44,7 +44,7 @@ export default function DifficultyQuestion() {
         </View>
     );
 
-    const { user } = useAuth()
+    const { user, updateUserConditions } = useAuth()
     const router = useRouter()
 
     const handleSubmit = async () => {
@@ -57,6 +57,7 @@ export default function DifficultyQuestion() {
             console.log("Condições atualizadas com sucesso:", response.data);
 
             if(response.status === 200) {
+                updateUserConditions(selectedConditions);
                 if (nextScreen) {
                     router.push(nextScreen);
                 } else {

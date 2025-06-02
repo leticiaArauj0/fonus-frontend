@@ -28,9 +28,9 @@ export default function exerciseDone() {
                     <Text>Número de acertos: 3</Text>
                 </View>
 
-                <TouchableOpacity style={styles.button}>
+                <View style={styles.button}>
                     <Text style={{color: '#99b83c', fontWeight: '600', fontSize: 16}}>Concluído</Text>
-                </TouchableOpacity>
+                </View>
             </View>
 
             <Link href='/home' asChild>

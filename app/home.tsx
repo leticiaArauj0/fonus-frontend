@@ -6,6 +6,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 import { useState } from "react";
 import { useAuth } from "@/auth/AuthContext";
 import exercises from '@/assets/exercises.json'
+import { useLocalSearchParams } from "expo-router";
 
 const faseData = [
     {label: 'Fase 1', value: 1},
@@ -26,15 +27,21 @@ export default function Home() {
     )
     const [selectedLevel, setSelectedLevel] = useState<number>(1)
 
+    const shouldShowConditionDropdown = user?.conditions && user.conditions.length > 0
+
     const conditionOptions = (user?.conditions || []).map(condition => ({
         label: condition,
         value: condition
     }));
 
+
     const filteredExercises = exercises.filter(ex => {
+        if (user?.ageGroup) {
+            return ex.condition.includes(user.ageGroup) && ex.level === selectedLevel;
+        }
         return (
-          (!selectedCondition || ex.condition === selectedCondition) &&
-          (!selectedLevel || ex.level === selectedLevel)
+            (!selectedCondition || ex.condition === selectedCondition) &&
+            (!selectedLevel || ex.level === selectedLevel)
         )
     })
 
@@ -51,15 +58,18 @@ export default function Home() {
             <Header />
 
             <View style={styles.containerFilter}>
-                <Dropdown
-                    style={styles.dropdown}
-                    data={conditionOptions}
-                    labelField="label"
-                    valueField="value"
-                    value={selectedCondition}
-                    onChange={item => setSelectedCondition(item.value)}
-                    renderItem={item => _renderItem(item)}
-                />
+                {shouldShowConditionDropdown && (
+                    <Dropdown
+                        style={styles.dropdown}
+                        data={conditionOptions}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Selecione a condição"
+                        value={selectedCondition}
+                        onChange={item => setSelectedCondition(item.value)}
+                        renderItem={item => _renderItem(item)}
+                    />
+                )}
                 <Dropdown
                     style={[styles.dropdown, {width: 120}]}
                     data={faseData}
