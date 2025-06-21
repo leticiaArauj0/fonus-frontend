@@ -1,29 +1,18 @@
-import { Link } from 'expo-router';
 import { ChartLineUp, ChatCenteredDots, Gear, House, User } from 'phosphor-react-native'
 import { View, Text, StyleSheet } from "react-native";
 
 export default function Navbar() {
     return(
         <View style={styles.contaiter}>
-            <Link href=''>
-                <Gear color='#47065B' size={30} />
-            </Link>
+            <Gear color='#47065B' size={30} />
             <Text style={styles.bar}>|</Text>
-            <Link href=''>
-                <ChartLineUp color='#47065B' size={30} />
-            </Link>
+            <ChartLineUp color='#47065B' size={30} />
             <Text style={styles.bar}>|</Text>
-            <Link href=''>
-                <House color='#47065B' size={30} weight="fill" />
-            </Link>
+            <House color='#47065B' size={30} weight="fill" />
             <Text style={styles.bar}>|</Text>
-            <Link href=''>
-                <ChatCenteredDots color='#47065B' size={30} weight="fill" />
-            </Link>
+            <ChatCenteredDots color='#47065B' size={30} weight="fill" />
             <Text style={styles.bar}>|</Text>
-            <Link href=''>
-                <User color='#47065B' size={30} weight="fill" />
-            </Link>
+            <User color='#47065B' size={30} weight="fill" />
         </View>
     )
 }

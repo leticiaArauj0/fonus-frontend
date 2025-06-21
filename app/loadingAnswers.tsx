@@ -38,13 +38,6 @@ export default function LoadingAnswers() {
   );
 }
 
-function getFaixaEtaria(idade: number): string | null {
-    if (idade >= 2 && idade <= 3) return "2-3";
-    if (idade >= 4 && idade <= 5) return "4-5";
-    if (idade >= 6 && idade <= 7) return "6-7";
-    return null;
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,

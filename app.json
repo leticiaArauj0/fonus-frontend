@@ -4,5 +4,13 @@
   },
   "ios": {
     "bundleIdentifier": "com.anonymous.fonus"
-  }
+  },
+  "extra": {
+    "eas": {
+      "projectId": "e2a6e138-311e-44d9-922a-6dcf221f3eb0"
+    }
+  },
+  "plugins": [
+    "expo-router"
+  ]
 }

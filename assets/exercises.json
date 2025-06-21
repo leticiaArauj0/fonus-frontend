@@ -157,6 +157,84 @@
     },
     {
       "title": "Exercício 1",
+      "description": "Som: TR",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "trem",
+          "phonetic": "TREM"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "trator",
+          "phonetic": "TRATOR"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "transito",
+          "phonetic": "TRÂNSITO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Som: DR",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "dragao",
+          "phonetic": "DRAGÃO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "drama",
+          "phonetic": "DRAMA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "dracula",
+          "phonetic": "DRÁCULA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Som: SC",
+      "condition": "Atraso na Aquisição da Linguagem (AAL)",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "escada",
+          "phonetic": "ESCADA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "escova",
+          "phonetic": "ESCOVA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "escudo",
+          "phonetic": "ESCUDO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
       "description": "Sons Iniciais",
       "condition": "Hipernasalidade",
       "level": 1,
@@ -248,6 +326,502 @@
       ]
     },
     {
+      "title": "Exercício 2",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "pedro",
+          "phonetic": "Pedro pegou o prato"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Sons Iniciais",
+      "condition": "Hipernasalidade",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "pedro",
+          "phonetic": "Pedro pegou o prato"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "Distúrbio Fonológico",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "Distúrbio Fonológico",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "Distúrbio Fonológico",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "Dislexia",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "Dislexia",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "Dislexia",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "Apraxia de Fala na Infância (AFI)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "Apraxia de Fala na Infância (AFI)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "Apraxia de Fala na Infância (AFI)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "Transtorno do Espectro Autista (TEA)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "Transtorno do Espectro Autista (TEA)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "Transtorno do Espectro Autista (TEA)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "Hipotonia Orofacial",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "Hipotonia Orofacial",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "Hipotonia Orofacial",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "Gagueira Infantil (Disfluência)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "Gagueira Infantil (Disfluência)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "Gagueira Infantil (Disfluência)",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
       "title": "Exercício 1",
       "description": "Repetição de palavras simples",
       "condition": "2-3",
@@ -301,9 +875,139 @@
     },
     {
       "title": "Exercício 3",
-      "description": "Repetição de palavras simples ",
+      "description": "Repetição de palavras simples",
       "condition": "2-3",
       "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples",
+      "condition": "2-3",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples",
+      "condition": "2-3",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples ",
+      "condition": "2-3",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "2-3",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples ",
+      "condition": "2-3",
+      "level": 2,
       "lessons": [
         {
           "type": "ouca-repita",
@@ -352,6 +1056,214 @@
       ]
     },
     {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "4-5",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "4-5",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 4",
+      "description": "Repetição de palavras simples",
+      "condition": "4-5",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 5",
+      "description": "Repetição de palavras simples",
+      "condition": "4-5",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 6",
+      "description": "Repetição de palavras simples",
+      "condition": "4-5",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples ",
+      "condition": "4-5",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "4-5",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples ",
+      "condition": "4-5",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
       "title": "Exercício 1",
       "description": "Som: CR",
       "condition": "6-7",
@@ -374,6 +1286,214 @@
           "number": 3,
           "imageUrl": "criativo",
           "phonetic": "CRIATIVO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples",
+      "condition": "6-7",
+      "level": 1,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "boi",
+          "phonetic": "BOI"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "gato",
+          "phonetic": "GATO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "pato",
+          "phonetic": "PATO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 2,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 1",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "banana",
+          "phonetic": "BANANA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "morango",
+          "phonetic": "MORANGO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "uva",
+          "phonetic": "UVA"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 2",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
+        }
+      ]
+    },
+    {
+      "title": "Exercício 3",
+      "description": "Repetição de palavras simples ",
+      "condition": "6-7",
+      "level": 3,
+      "lessons": [
+        {
+          "type": "ouca-repita",
+          "number": 1,
+          "imageUrl": "bola",
+          "phonetic": "BOLA"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 2,
+          "imageUrl": "carro",
+          "phonetic": "CARRO"
+        },
+        {
+          "type": "ouca-repita",
+          "number": 3,
+          "imageUrl": "garfo",
+          "phonetic": "GARFO"
         }
       ]
     }
